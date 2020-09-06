@@ -1,1 +1,50 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.custom-padding-lr-half {
+    padding: 0 .5rem;
+}
+.custom-padding-lr-one {
+    padding: 0 1rem;
+}
+.custom-padding-lr-two {
+    padding: 0 2rem;
+}
+.custom-margin-lr-half {
+    margin: 0 .5rem;
+}
+.custom-margin-lr-one {
+    margin: 0 1rem;
+}
+.custom-margin-lr-two {
+    margin: 0 2rem;
+}
+.cdk-overlay-pane {
+    margin-top: 55px !important;
+    margin-left: 30px !important;
+}
+.mat-select-panel {
+    width: 100%;
+}
+mat-select-autocomplete mat-form-field {
+    display: flex !important;
+    width: 100% !important;
+}
+mat-select-autocomplete mat-form-field .mat-form-field-wrapper{
+    display: flex !important;
+    width: 100% !important;
+}
+.mat-select-placeholder {
+    color: wheat !important;
+}
+.mat-select-arrow {
+    color: wheat !important;
+}
+.custom-padding-tb-one {
+    padding: 1rem 0;
+}
+.custom-padding-tb-two {
+    padding: 0 2rem;
+}

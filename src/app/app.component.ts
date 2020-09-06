@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CommonService } from './services/common.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,19 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'FEproblem1';
+
+  constructor(private commonService:CommonService){
+
+  }
+  ngOnInit() {
+    this.getToken();
+  }
+  setToken(token) {
+    localStorage.setItem("kingShan-token", token);
+  }
+  getToken() {
+    this.commonService.getToken().subscribe(res => {
+      this.setToken(res.token);
+    })
+  }
 }

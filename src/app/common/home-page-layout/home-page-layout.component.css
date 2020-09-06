@@ -1,0 +1,36 @@
+.homepage-layout-header {
+    background-color: #080808;
+    display: flex;
+    width: 100%;
+    height: 15vh;
+    align-items: center;
+    justify-content: center;
+}
+.homepage-layout-footer {
+    background-color: #F68B1F;
+    display: flex;
+    width: 100%;
+    height: 15vh;
+    align-items: center;
+    justify-content: center;
+}
+.sidenav-layout {
+    height: 85vh;
+    background-color: #F68B1F;
+    width: 15%;
+    display: flex;
+}
+.custom-screen-height-01 {
+    height: 98vh;
+}
+.custom-kingshan-heading-01 {
+    font-size: 3rem;
+    font-weight: 600;
+    font-family: pacifico;
+    color: #f5f5f5;
+}
+.custom-img-01 {
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+}

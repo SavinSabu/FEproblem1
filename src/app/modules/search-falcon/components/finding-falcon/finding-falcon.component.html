@@ -1,0 +1,44 @@
+<div style="bottom: 0px;position: absolute; width: 100%; display: flex; text-align: center;"> 
+  <button mat-raised-button color="primary" style="width: 100%;">The Estimated Time Taken: {{timeTaken}}</button>
+</div>  
+<div class="find-falcon-main-div" fxLayout="column" fxLayoutAlign="space-between stretch" fxFlex="100%">
+  <img [class.disable]="isBrokenImage" src="https://blogs-images.forbes.com/startswithabang/files/2018/12/Supagif.gif?" (error)="errorHandler($event)" class="custom-background-image">
+  <div fxLayout="row" fxLayoutAlign="space-between stretch" fxFlex="100%" class="custom-form-div custom-padding-lr-two">
+      <div fxLayout="row" fxLayoutAlign="center stretch" style="background: linear-gradient(to right,#107ba5,#cac89890);border-radius: 25px;padding: 20px;margin: 20px;" fxFlex="20">
+        <form [formGroup]="profileForm" fxLayout="column" fxLayoutAlign="space-between stretch" fxFlex="100%" class="custom-margin-lr-two">
+          <mat-label class="custom-padding-tb-one">Select planets you want to search in:</mat-label>  
+          <div fxLayout="row" fxLayoutAlign="start start" fxFlex="80%">
+            <mat-select-autocomplete
+              [placeholder]="'Select the planet to search Al-Falcon'"
+              [options]="options"
+              [multiple]='true'
+              name="optionsSelector"
+              appearance="outline"
+              ngDefaultControl
+              (selectionChange) ="changed()"
+              [formControl]= "profileForm.controls['selected']"
+              fxFlex="100%" fxLayout="column" fxLayoutAlign="space-between start">
+            </mat-select-autocomplete>
+          </div>
+          <div fxLayout="column" fxLayoutAlign="space-between stretch" fxFlex="20%">
+            <button  mat-raised-button color="primary" (click)="findFalcon()" [disabled]="isFindFalconDisabled">Begin Journey</button>
+            <button  mat-raised-button color="warn" (click)="searchFalcon()"[disabled]="!enableFindFalcon">Find Falcon</button>
+          </div>
+        </form>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center stretch" fxFlex="80" *ngFor="let planet of planetSelected; let i=index">
+        <div fxLayout="column" fxLayoutAlign="start center" [ngClass]="{ 'firstItem': i==0, 'secondItem': i==1, 'thirdItem': i==2, 'fourthItem': i==3}" class="custom-planet-div" fxFlex="100" *ngIf="isEnableVehicle">
+          <div class="custom-planet-card">
+            <mat-label [ngClass]="{ 'firstItem': i==0, 'secondItem': i==1, 'thirdItem': i==2, 'fourthItem': i==3}" class="custom-planet-label">{{ planet.display | uppercase }}</mat-label>
+          </div>
+          <div >
+            Choose the Vehicle
+          </div>
+          <div>
+            <mat-radio-group fxLayout="column" fxLayoutAlign="start stretch">
+              <mat-radio-button fxFlex="100" *ngFor="let vehicle of planet.vehicle; let num=index" value="{{planet.display}}-{{planet.planetDistance}}-vehicle-{{vehicle.max_distance}}-{{vehicle.name}}-{{vehicle.total_no}}-{{i}}-{{num}}-{{vehicle.speed}}" (change)="radioChange($event)"> {{ vehicle.name }} </mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+      </div>
+    </div>
